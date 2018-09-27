@@ -1,4 +1,4 @@
-package com.ftts.model;
+package com.ftts.data;
 
 public class Pictures {
 }
