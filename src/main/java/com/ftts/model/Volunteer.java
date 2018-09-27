@@ -3,11 +3,11 @@ package com.ftts.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Table
 @Entity
 public class Volunteer {
 
     @Id
+    @GeneratedValue
     private int id;
 
     @Column

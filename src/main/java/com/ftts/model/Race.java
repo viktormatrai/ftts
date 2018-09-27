@@ -4,11 +4,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Time;
 
-@Table
 @Entity
 public class Race {
 
     @Id
+    @GeneratedValue
     private int id;
 
     @Column

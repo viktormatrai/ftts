@@ -7,9 +7,11 @@ import javax.persistence.*;
 public class Team {
 
     @Id
+    @GeneratedValue
+    @OneToMany
     private int id;
 
-    @OneToMany
+    @Column
     private String teamName;
 
     @ManyToOne

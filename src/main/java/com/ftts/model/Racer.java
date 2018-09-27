@@ -2,11 +2,11 @@ package com.ftts.model;
 
 import javax.persistence.*;
 
-@Table
 @Entity
 public class Racer {
 
     @Id
+    @GeneratedValue
     @OneToMany
     private int id;
     @Column
