@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 public class Tag {
 
     @Id
+    @ManyToMany
     private int Id;
 
     @Column
