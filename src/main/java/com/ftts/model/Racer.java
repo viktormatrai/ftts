@@ -18,13 +18,14 @@ public class Racer {
     @Column
     private String lastname;
     @Column
-    private String team;
-
+    private Team team;
     @Column
     @ManyToOne
     private Race race;
+    @Column
+    private Gender gender;
 
-    public Racer(int id, String email, String password, String firstName, String lastname, String team, Race race) {
+    public Racer(int id, String email, String password, String firstName, String lastname, Team team, Race race) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -70,11 +71,11 @@ public class Racer {
         this.lastname = lastname;
     }
 
-    public String getTeam() {
+    public Team getTeam() {
         return team;
     }
 
-    public void setTeam(String team) {
+    public void setTeam(Team team) {
         this.team = team;
     }
 
