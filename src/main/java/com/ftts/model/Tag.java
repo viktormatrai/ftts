@@ -12,7 +12,6 @@ public class Tag {
     private int Id;
 
     @Column
-    @NotNull
     private String tag;
 
     @Column

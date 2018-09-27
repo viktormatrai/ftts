@@ -22,10 +22,13 @@ public class Racer {
     @Column
     @ManyToOne
     private Race race;
+
     @Column
     private Gender gender;
 
-    public Racer(int id, String email, String password, String firstName, String lastname, Team team, Race race) {
+    @Column
+    private Tag tag;
+    public Racer(int id, String email, String password, String firstName, String lastname, Team team, Race race, Gender gender, Tag tag) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -33,10 +36,20 @@ public class Racer {
         this.lastname = lastname;
         this.team = team;
         this.race = race;
+        this.gender = gender;
+        this.tag = tag;
     }
 
     public int getId() {
         return id;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public String getEmail() {
