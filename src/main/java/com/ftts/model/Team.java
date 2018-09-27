@@ -15,13 +15,17 @@ public class Team {
     @ManyToOne
     private Racer racer;
 
+    @Column
+    private int points;
+
     @OneToMany
     private Race race;
 
-    public Team(int id, String teamName, Racer racer, Race race) {
+    public Team(int id, String teamName, Racer racer, int points, Race race) {
         this.id = id;
         this.teamName = teamName;
         this.racer = racer;
+        this.points = points;
         this.race = race;
     }
 
@@ -52,5 +56,13 @@ public class Team {
 
     public void setRace(Race race) {
         this.race = race;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 }
