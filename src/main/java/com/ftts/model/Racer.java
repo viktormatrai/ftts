@@ -17,13 +17,21 @@ public class Racer {
     private String firstName;
     @Column
     private String lastname;
+    @Column
+    private String team;
 
-    public Racer(int id, String email, String password, String firstName, String lastname) {
+    @Column
+    @ManyToOne
+    private Race race;
+
+    public Racer(int id, String email, String password, String firstName, String lastname, String team, Race race) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastname = lastname;
+        this.team = team;
+        this.race = race;
     }
 
     public int getId() {
@@ -60,5 +68,21 @@ public class Racer {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getTeam() {
+        return team;
+    }
+
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+    public Race getRace() {
+        return race;
+    }
+
+    public void setRace(Race race) {
+        this.race = race;
     }
 }

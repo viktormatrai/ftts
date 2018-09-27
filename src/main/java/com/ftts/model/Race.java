@@ -38,7 +38,14 @@ public class Race {
     @Column
     private Time neutralZoneThree;
 
-    public Race(int id, Racer racer, @NotNull String raceName, @NotNull Time startingTime, Time finishingTime, Time finalTime, Time neutralZone, Time neutralZoneTwo, Time neutralZoneThree) {
+    @Column
+    private int place;
+
+    @Column
+    private int points;
+
+
+    public Race(int id, Racer racer, @NotNull String raceName, @NotNull Time startingTime, Time finishingTime, Time finalTime, Time neutralZone, Time neutralZoneTwo, Time neutralZoneThree, int place, int points) {
         this.id = id;
         this.racer = racer;
         this.raceName = raceName;
@@ -48,6 +55,8 @@ public class Race {
         this.neutralZone = neutralZone;
         this.neutralZoneTwo = neutralZoneTwo;
         this.neutralZoneThree = neutralZoneThree;
+        this.place = place;
+        this.points = points;
     }
 
     public int getId() {
@@ -116,5 +125,21 @@ public class Race {
 
     public void setNeutralZoneThree(Time neutralZoneThree) {
         this.neutralZoneThree = neutralZoneThree;
+    }
+
+    public int getPlace() {
+        return place;
+    }
+
+    public void setPlace(int place) {
+        this.place = place;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 }
