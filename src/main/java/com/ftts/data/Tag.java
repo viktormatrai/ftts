@@ -2,6 +2,7 @@ package com.ftts.data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 public class Tag {
@@ -10,25 +11,17 @@ public class Tag {
     @GeneratedValue
     @ManyToMany
     private int Id;
-
-    @Column
     private String tag;
-
-    @Column
     @ManyToOne
-    private Racer racer;
-
-    @Column
+    private List<Racer> racer;
     @ManyToOne
-    private Race raceName;
+    private List<Race> raceName;
 
-    public Tag(int id, @NotNull String tag, Racer racer, Race raceName) {
-        Id = id;
+    public Tag(String tag, List<Racer> racer, List<Race> raceName) {
         this.tag = tag;
         this.racer = racer;
         this.raceName = raceName;
     }
-
 
     public int getId() {
         return Id;
@@ -42,19 +35,19 @@ public class Tag {
         this.tag = tag;
     }
 
-    public Racer getRacer() {
+    public List<Racer> getRacer() {
         return racer;
     }
 
-    public void setRacer(Racer racer) {
+    public void setRacer(List<Racer> racer) {
         this.racer = racer;
     }
 
-    public Race getRaceName() {
+    public List<Race> getRaceName() {
         return raceName;
     }
 
-    public void setRaceName(Race raceName) {
+    public void setRaceName(List<Race> raceName) {
         this.raceName = raceName;
     }
 }

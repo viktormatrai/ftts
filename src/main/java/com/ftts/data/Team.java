@@ -1,6 +1,7 @@
 package com.ftts.data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Table
 @Entity
@@ -10,21 +11,14 @@ public class Team {
     @GeneratedValue
     @OneToMany
     private int id;
-
-    @Column
     private String teamName;
-
     @ManyToOne
-    private Racer racer;
-
-    @Column
+    private List<Racer> racer;
     private int points;
-
     @OneToMany
     private Race race;
 
-    public Team(int id, String teamName, Racer racer, int points, Race race) {
-        this.id = id;
+    public Team(String teamName, List<Racer> racer, int points, Race race) {
         this.teamName = teamName;
         this.racer = racer;
         this.points = points;
@@ -44,11 +38,11 @@ public class Team {
         this.teamName = teamName;
     }
 
-    public Racer getRacer() {
+    public List<Racer> getRacer() {
         return racer;
     }
 
-    public void setRacer(Racer racer) {
+    public void setRacer(List<Racer> racer) {
         this.racer = racer;
     }
 

@@ -2,6 +2,7 @@ package com.ftts.data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 public class Volunteer {
@@ -9,25 +10,16 @@ public class Volunteer {
     @Id
     @GeneratedValue
     private int id;
-
-    @Column
     @NotNull
     private String email;
-
-    @Column
     @NotNull
     private String firstName;
-
-    @Column
     @NotNull
     private String lastName;
-
-    @Column
     @ManyToOne
-    private Race race;
+    private List<Race> race;
 
-    public Volunteer(int id, @NotNull String email, @NotNull String firstName, @NotNull String lastName, Race race) {
-        this.id = id;
+    public Volunteer(@NotNull String email, @NotNull String firstName, @NotNull String lastName, List<Race> race) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -62,11 +54,11 @@ public class Volunteer {
         this.lastName = lastName;
     }
 
-    public Race getRace() {
+    public List<Race> getRace() {
         return race;
     }
 
-    public void setRace(Race race) {
+    public void setRace(List<Race> race) {
         this.race = race;
     }
 }

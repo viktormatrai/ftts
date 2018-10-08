@@ -3,6 +3,7 @@ package com.ftts.data;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Time;
+import java.util.List;
 
 @Entity
 public class Race {
@@ -10,43 +11,22 @@ public class Race {
     @Id
     @GeneratedValue
     private int id;
-
-    @Column
     @ManyToOne
-    private Racer racer;
-
-    @Column
+    private List<Racer> racer;
     @NotNull
     private String raceName;
-
-    @Column
     @NotNull
     private Time startingTime;
-
-    @Column
     private Time finishingTime;
-
-    @Column
     private Time finalTime;
-
-    @Column
     private Time neutralZone;
-
-    @Column
     private Time neutralZoneTwo;
-
-    @Column
     private Time neutralZoneThree;
-
-    @Column
     private int place;
-
-    @Column
     private int points;
 
 
-    public Race(int id, Racer racer, @NotNull String raceName, @NotNull Time startingTime, Time finishingTime, Time finalTime, Time neutralZone, Time neutralZoneTwo, Time neutralZoneThree, int place, int points) {
-        this.id = id;
+    public Race(List<Racer> racer, @NotNull String raceName, @NotNull Time startingTime, Time finishingTime, Time finalTime, Time neutralZone, Time neutralZoneTwo, Time neutralZoneThree, int place, int points) {
         this.racer = racer;
         this.raceName = raceName;
         this.startingTime = startingTime;
@@ -63,11 +43,11 @@ public class Race {
         return id;
     }
 
-    public Racer getRacer() {
+    public List<Racer> getRacer() {
         return racer;
     }
 
-    public void setRacer(Racer racer) {
+    public void setRacer(List<Racer> racer) {
         this.racer = racer;
     }
 

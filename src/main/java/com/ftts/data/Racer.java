@@ -1,6 +1,8 @@
 package com.ftts.data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 public class Racer {
@@ -9,31 +11,26 @@ public class Racer {
     @GeneratedValue
     @OneToMany
     private int id;
-    @Column
     private String email;
-    @Column
+    @NotNull
     private String password;
-    @Column
+    @NotNull
     private String firstName;
-    @Column
-    private String lastname;
-    @Column
+    @NotNull
+    private String lastName;
     private Team team;
-    @Column
     @ManyToOne
-    private Race race;
-
-    @Column
+    private List<Race> race;
+    @NotNull
     private Gender gender;
+    @ManyToOne
+    private List<Tag> tag;
 
-    @Column
-    private Tag tag;
-    public Racer(int id, String email, String password, String firstName, String lastname, Team team, Race race, Gender gender, Tag tag) {
-        this.id = id;
+    public Racer(String email, String password, String firstName, String lastName, Team team, List<Race> race, Gender gender, List<Tag> tag) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
-        this.lastname = lastname;
+        this.lastName = lastName;
         this.team = team;
         this.race = race;
         this.gender = gender;
@@ -42,14 +39,6 @@ public class Racer {
 
     public int getId() {
         return id;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
     }
 
     public String getEmail() {
@@ -76,12 +65,12 @@ public class Racer {
         this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Team getTeam() {
@@ -92,11 +81,27 @@ public class Racer {
         this.team = team;
     }
 
-    public Race getRace() {
+    public List<Race> getRace() {
         return race;
     }
 
-    public void setRace(Race race) {
+    public void setRace(List<Race> race) {
         this.race = race;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public List<Tag> getTag() {
+        return tag;
+    }
+
+    public void setTag(List<Tag> tag) {
+        this.tag = tag;
     }
 }
