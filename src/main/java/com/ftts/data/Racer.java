@@ -9,7 +9,6 @@ public class Racer {
 
     @Id
     @GeneratedValue
-    @OneToMany
     private int id;
     private String email;
     @NotNull
@@ -18,15 +17,20 @@ public class Racer {
     private String firstName;
     @NotNull
     private String lastName;
+    @OneToOne
     private Team team;
-    @ManyToOne
+    @OneToMany(mappedBy = "racer")
     private List<Race> race;
     @NotNull
     private Gender gender;
-    @ManyToOne
+    @OneToMany
     private List<Tag> tag;
+    int points;
 
-    public Racer(String email, String password, String firstName, String lastName, Team team, List<Race> race, Gender gender, List<Tag> tag) {
+    public Racer() {
+    }
+
+    public Racer(String email, @NotNull String password, @NotNull String firstName, @NotNull String lastName, Team team, List<Race> race, @NotNull Gender gender, List<Tag> tag, int points) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -35,10 +39,19 @@ public class Racer {
         this.race = race;
         this.gender = gender;
         this.tag = tag;
+        this.points = points;
     }
 
     public int getId() {
         return id;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 
     public String getEmail() {

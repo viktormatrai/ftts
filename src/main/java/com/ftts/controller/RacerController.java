@@ -19,11 +19,21 @@ public class RacerController {
 
     @GetMapping(value = "/racers", produces = "application/json")
     public ResponseEntity<List<Racer>> getRacers(){
-        return new ResponseEntity<List<Racer>>(racerRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(racerRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/racer/{id}", produces = "application/json")
+    @GetMapping(value = "/racers/{id}", produces = "application/json")
     public ResponseEntity<Racer> getRacerById(@PathVariable("id") int id){
         return new ResponseEntity<>(racerRepository.getById(id),HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/racers/{gender}", produces = "application/json")
+    public ResponseEntity<List<Racer>> getRacersByGender(@PathVariable("gender") String gender){
+        return new ResponseEntity<>(racerRepository.findAllByGender(gender), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/racers/{firstName}", produces = "application/json")
+    public ResponseEntity<List<Racer>> getRacersByFirstName(@PathVariable("firstName") String firstName){
+        return new ResponseEntity<>(racerRepository.findAllByFirstName(firstName), HttpStatus.OK);
     }
 }

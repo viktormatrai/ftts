@@ -14,6 +14,9 @@ public class Pictures {
     private List<Tag> tags;
     private String pictureURL;
 
+    public Pictures() {
+    }
+
     public Pictures(List<Tag> tags, String pictureURL) {
         this.tags = tags;
 

@@ -16,8 +16,11 @@ public class Volunteer {
     private String firstName;
     @NotNull
     private String lastName;
-    @ManyToOne
+    @OneToMany
     private List<Race> race;
+
+    public Volunteer() {
+    }
 
     public Volunteer(@NotNull String email, @NotNull String firstName, @NotNull String lastName, List<Race> race) {
         this.email = email;

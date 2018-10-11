@@ -9,20 +9,24 @@ public class Team {
 
     @Id
     @GeneratedValue
-    @OneToMany
     private int id;
     private String teamName;
-    @ManyToOne
+    @OneToMany
     private List<Racer> racer;
     private int points;
     @OneToMany
-    private Race race;
+    private List<Race> race;
+    int teamPoints;
 
-    public Team(String teamName, List<Racer> racer, int points, Race race) {
+    public Team() {
+    }
+
+    public Team(String teamName, List<Racer> racer, int points, List<Race> race, int teamPoints) {
         this.teamName = teamName;
         this.racer = racer;
         this.points = points;
         this.race = race;
+        this.teamPoints = teamPoints;
     }
 
     public int getId() {
@@ -46,12 +50,20 @@ public class Team {
         this.racer = racer;
     }
 
-    public Race getRace() {
+    public List<Race> getRace() {
         return race;
     }
 
-    public void setRace(Race race) {
+    public void setRace(List<Race> race) {
         this.race = race;
+    }
+
+    public int getTeamPoints() {
+        return teamPoints;
+    }
+
+    public void setTeamPoints(int teamPoints) {
+        this.teamPoints = teamPoints;
     }
 
     public int getPoints() {

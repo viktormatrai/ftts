@@ -9,15 +9,17 @@ public class Tag {
 
     @Id
     @GeneratedValue
-    @ManyToMany
     private int Id;
     private String tag;
     @ManyToOne
-    private List<Racer> racer;
+    private Racer racer;
     @ManyToOne
-    private List<Race> raceName;
+    private Race raceName;
 
-    public Tag(String tag, List<Racer> racer, List<Race> raceName) {
+    public Tag() {
+    }
+
+    public Tag(String tag, Racer racer, Race raceName) {
         this.tag = tag;
         this.racer = racer;
         this.raceName = raceName;
@@ -35,19 +37,19 @@ public class Tag {
         this.tag = tag;
     }
 
-    public List<Racer> getRacer() {
+    public Racer getRacer() {
         return racer;
     }
 
-    public void setRacer(List<Racer> racer) {
+    public void setRacer(Racer racer) {
         this.racer = racer;
     }
 
-    public List<Race> getRaceName() {
+    public Race getRaceName() {
         return raceName;
     }
 
-    public void setRaceName(List<Race> raceName) {
+    public void setRaceName(Race raceName) {
         this.raceName = raceName;
     }
 }

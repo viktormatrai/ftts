@@ -12,7 +12,7 @@ public class Race {
     @GeneratedValue
     private int id;
     @ManyToOne
-    private List<Racer> racer;
+    private Racer racer;
     @NotNull
     private String raceName;
     @NotNull
@@ -22,11 +22,11 @@ public class Race {
     private Time neutralZone;
     private Time neutralZoneTwo;
     private Time neutralZoneThree;
-    private int place;
-    private int points;
 
+    public Race() {
+    }
 
-    public Race(List<Racer> racer, @NotNull String raceName, @NotNull Time startingTime, Time finishingTime, Time finalTime, Time neutralZone, Time neutralZoneTwo, Time neutralZoneThree, int place, int points) {
+    public Race(Racer racer, @NotNull String raceName, @NotNull Time startingTime, Time finishingTime, Time finalTime, Time neutralZone, Time neutralZoneTwo, Time neutralZoneThree) {
         this.racer = racer;
         this.raceName = raceName;
         this.startingTime = startingTime;
@@ -35,19 +35,17 @@ public class Race {
         this.neutralZone = neutralZone;
         this.neutralZoneTwo = neutralZoneTwo;
         this.neutralZoneThree = neutralZoneThree;
-        this.place = place;
-        this.points = points;
     }
 
     public int getId() {
         return id;
     }
 
-    public List<Racer> getRacer() {
+    public Racer getRacer() {
         return racer;
     }
 
-    public void setRacer(List<Racer> racer) {
+    public void setRacer(Racer racer) {
         this.racer = racer;
     }
 
@@ -107,19 +105,4 @@ public class Race {
         this.neutralZoneThree = neutralZoneThree;
     }
 
-    public int getPlace() {
-        return place;
-    }
-
-    public void setPlace(int place) {
-        this.place = place;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
 }

@@ -1,4 +1,4 @@
-package main.java.com.ftts;
+package com.ftts;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
