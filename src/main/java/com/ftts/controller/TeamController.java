@@ -27,8 +27,8 @@ public class TeamController {
         return new ResponseEntity<>(teamRepository.getById(id), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/team/{teamName}", produces = "application/json")
-    public ResponseEntity<Team> getTeamByTeamName(@PathVariable("teamName") String teamname){
-        return new ResponseEntity<>(teamRepository.findTeamByTeamName(teamname), HttpStatus.OK);
-    }
+    /*@GetMapping(value = "/teams/{teamName}", produces = "application/json")
+    public ResponseEntity<Team> getTeamByTeamName(@PathVariable("teamName") String teamName){
+        return new ResponseEntity<>(teamRepository.findTeamByTeamName(teamName), HttpStatus.OK);
+    }*/
 }

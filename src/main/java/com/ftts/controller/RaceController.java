@@ -22,7 +22,7 @@ public class RaceController {
         return new ResponseEntity<>(raceRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "races/{raceName}", produces = "application/json")
+    @GetMapping(value = "/races/{raceName}", produces = "application/json")
     public ResponseEntity<Race> getRaceByName(@PathVariable("raceName") String raceName){
         return new ResponseEntity<>(raceRepository.getByRaceName(raceName), HttpStatus.OK);
     }

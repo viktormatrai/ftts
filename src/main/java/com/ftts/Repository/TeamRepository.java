@@ -12,6 +12,6 @@ import java.util.List;
 public interface TeamRepository extends JpaRepository<Team, Integer> {
     Team getById(@Param("id") Integer id);
 
-    @Query(value = "SELECT t FROM Team t WHERE teamName LIKE %teamName% ORDER BY id")
-    List<Team>findTeamByTeamName(@Param("teamName") String teamName);
+    /*@Query(value = "SELECT t FROM Team t WHERE teamName LIKE %teamName% ORDER BY id")
+    List<Team>findTeamByTeamName(@Param("teamName") String teamName);*/
 }

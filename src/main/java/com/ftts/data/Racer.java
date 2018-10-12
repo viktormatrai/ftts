@@ -17,7 +17,7 @@ public class Racer {
     private String firstName;
     @NotNull
     private String lastName;
-    @OneToOne(mappedBy = "racer")
+    @ManyToOne
     private Team team;
     @OneToMany(mappedBy = "racer")
     private List<Race> race;

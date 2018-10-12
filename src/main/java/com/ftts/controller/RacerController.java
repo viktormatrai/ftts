@@ -27,7 +27,7 @@ public class RacerController {
         return new ResponseEntity<>(racerRepository.getById(id),HttpStatus.OK);
     }
 
-    @GetMapping(value = "/racers/{gender}", produces = "application/json")
+  /*  @GetMapping(value = "/racers/{gender}", produces = "application/json")
     public ResponseEntity<List<Racer>> getRacersByGender(@PathVariable("gender") String gender){
         return new ResponseEntity<>(racerRepository.findAllByGender(gender), HttpStatus.OK);
     }
@@ -35,5 +35,5 @@ public class RacerController {
     @GetMapping(value = "/racers/{firstName}", produces = "application/json")
     public ResponseEntity<List<Racer>> getRacersByFirstName(@PathVariable("firstName") String firstName){
         return new ResponseEntity<>(racerRepository.findAllByFirstName(firstName), HttpStatus.OK);
-    }
+    }*/
 }
