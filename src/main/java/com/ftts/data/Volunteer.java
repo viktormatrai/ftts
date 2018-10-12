@@ -16,7 +16,7 @@ public class Volunteer {
     private String firstName;
     @NotNull
     private String lastName;
-    @OneToMany
+    @OneToMany(mappedBy = "volunteer")
     private List<Race> race;
 
     public Volunteer() {

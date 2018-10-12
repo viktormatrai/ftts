@@ -11,10 +11,16 @@ public class Race {
     @Id
     @GeneratedValue
     private int id;
-    @ManyToOne
+    @ManyToOne(targetEntity = Racer.class)
     private Racer racer;
+    @ManyToOne(targetEntity = Volunteer.class)
+    private Volunteer volunteer;
+    @OneToMany(mappedBy = "raceName")
+    private List<Tag> tag;
+
     @NotNull
     private String raceName;
+
     @NotNull
     private Time startingTime;
     private Time finishingTime;
@@ -105,4 +111,19 @@ public class Race {
         this.neutralZoneThree = neutralZoneThree;
     }
 
+    public Volunteer getVolunteer() {
+        return volunteer;
+    }
+
+    public void setVolunteer(Volunteer volunteer) {
+        this.volunteer = volunteer;
+    }
+
+    public List<Tag> getTag() {
+        return tag;
+    }
+
+    public void setTag(List<Tag> tag) {
+        this.tag = tag;
+    }
 }

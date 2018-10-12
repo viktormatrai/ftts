@@ -11,7 +11,7 @@ public class Team {
     @GeneratedValue
     private int id;
     private String teamName;
-    @OneToMany
+    @OneToMany(mappedBy = "team")
     private List<Racer> racer;
     private int points;
     @OneToMany

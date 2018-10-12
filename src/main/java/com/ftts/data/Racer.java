@@ -17,13 +17,13 @@ public class Racer {
     private String firstName;
     @NotNull
     private String lastName;
-    @OneToOne
+    @OneToOne(mappedBy = "racer")
     private Team team;
     @OneToMany(mappedBy = "racer")
     private List<Race> race;
     @NotNull
     private Gender gender;
-    @OneToMany
+    @OneToMany(mappedBy = "racer")
     private List<Tag> tag;
     int points;
 

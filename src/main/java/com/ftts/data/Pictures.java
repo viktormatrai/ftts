@@ -11,23 +11,23 @@ public class Pictures {
     @GeneratedValue
     private int id;
     @ManyToOne
-    private List<Tag> tags;
+    private Tag tags;
     private String pictureURL;
 
     public Pictures() {
     }
 
-    public Pictures(List<Tag> tags, String pictureURL) {
+    public Pictures(Tag tags, String pictureURL) {
         this.tags = tags;
 
         this.pictureURL = pictureURL;
     }
 
-    public List<Tag> getTags() {
+    public Tag getTags() {
         return tags;
     }
 
-    public void setTags(List<Tag> tags) {
+    public void setTags(Tag tags) {
         this.tags = tags;
     }
 

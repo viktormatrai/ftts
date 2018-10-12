@@ -1,7 +1,6 @@
 package com.ftts.data;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -15,14 +14,17 @@ public class Tag {
     private Racer racer;
     @ManyToOne
     private Race raceName;
+    @OneToMany(mappedBy = "tags")
+    private List<Pictures> pictures;
 
     public Tag() {
     }
 
-    public Tag(String tag, Racer racer, Race raceName) {
+    public Tag(String tag, Racer racer, Race raceName, List<Pictures> pictures) {
         this.tag = tag;
         this.racer = racer;
         this.raceName = raceName;
+        this.pictures = pictures;
     }
 
     public int getId() {
@@ -51,5 +53,13 @@ public class Tag {
 
     public void setRaceName(Race raceName) {
         this.raceName = raceName;
+    }
+
+    public List<Pictures> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(List<Pictures> pictures) {
+        this.pictures = pictures;
     }
 }
