@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(path = "team")
-public interface TeamRepository extends JpaRepository<Team, Integer> {
+public interface TeamRepository extends JpaRepository<Team, Long> {
     Team getById(@Param("id") Integer id);
 
     /*@Query(value = "SELECT t FROM Team t WHERE teamName LIKE %teamName% ORDER BY id")

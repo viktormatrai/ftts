@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(path = "racer")
-public interface RacerRepository extends JpaRepository<Racer, Integer> {
+public interface RacerRepository extends JpaRepository<Racer, Long> {
 
     Racer getById(@Param("id") Integer id);
 
