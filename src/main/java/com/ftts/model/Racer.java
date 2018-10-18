@@ -14,9 +14,8 @@ public class Racer {
 
     @Id
     @GeneratedValue
-    private int id;
-  //  private String email;
-    @NonNull
+    private Long id;
+    @Column(nullable = false)
     private String name;
 
   //  @ManyToOne

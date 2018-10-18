@@ -16,7 +16,7 @@ public class Tag {
 
     @Id
     @GeneratedValue
-    private int Id;
+    private Long Id;
     private String tag;
  //   @ManyToOne
  //   private Racer racer;

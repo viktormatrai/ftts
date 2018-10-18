@@ -14,7 +14,7 @@ public class Race {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
 
     @NonNull
     private String raceName;

@@ -17,7 +17,7 @@ public class Volunteer {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     @NotNull
     private String email;
     @NotNull

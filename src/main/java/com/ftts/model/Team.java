@@ -16,7 +16,7 @@ public class Team {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     private String teamName;
    // @OneToMany(mappedBy = "team")
    // private List<Racer> racer;
