@@ -1,12 +1,6 @@
-package com.ftts.data;
+package com.ftts.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import java.util.List;
-
-@Entity
+/*@Entity
 public class Pictures {
 
     @Id
@@ -44,4 +38,4 @@ public class Pictures {
     public int getId() {
         return id;
     }
-}
+} */

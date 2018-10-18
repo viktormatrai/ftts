@@ -1,7 +1,7 @@
 package com.ftts.controller;
 
-import com.ftts.Repository.RacerRepository;
-import com.ftts.data.Racer;
+import com.ftts.repository.RacerRepository;
+import com.ftts.model.Racer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,7 @@
 package com.ftts.controller;
 
-import com.ftts.Repository.TeamRepository;
-import com.ftts.data.Team;
+import com.ftts.repository.TeamRepository;
+import com.ftts.model.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.ftts.data;
+package com.ftts.model;
 
 public enum Gender {
 
