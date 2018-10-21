@@ -25,8 +25,8 @@ public class Racer {
     @ManyToOne
     private Team team;
     //
-  //  @NotNull
-  //  private Gender gender;
+    @NonNull
+    private Gender gender;
   //  @OneToMany(mappedBy = "racer")
   //  private List<Tag> tag;
     int points;
