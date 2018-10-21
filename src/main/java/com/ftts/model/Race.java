@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -25,8 +26,9 @@ public class Race {
     private Long neutralZoneThree;
     private LocalTime finalTime;
 
-  //  @ManyToOne(targetEntity = Racer.class)
-  //  private Racer racer;
+    @ManyToOne
+    @EqualsAndHashCode.Exclude
+    private Racer racer;
  //   @ManyToOne(targetEntity = Volunteer.class)
  //   private Volunteer volunteer;
  //   @OneToMany(mappedBy = "raceName")

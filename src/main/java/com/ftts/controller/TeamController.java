@@ -23,7 +23,7 @@ public class TeamController {
     }
 
     @GetMapping(value = "/teams/{id}", produces = "application/json")
-    public ResponseEntity<Team> getTeamById(@PathVariable("id") int id){
+    public ResponseEntity<Team> getTeamById(@PathVariable("id") Long id){
         return new ResponseEntity<>(teamRepository.getById(id), HttpStatus.OK);
     }
 

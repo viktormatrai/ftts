@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -20,7 +21,6 @@ public class Team {
     private String teamName;
    // @OneToMany(mappedBy = "team")
    // private List<Racer> racer;
-   // private int points;
    // @OneToMany
    // private List<Race> race;
     int teamPoints;

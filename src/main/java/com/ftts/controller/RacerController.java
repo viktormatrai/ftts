@@ -23,7 +23,7 @@ public class RacerController {
     }
 
     @GetMapping(value = "/racers/{id}", produces = "application/json")
-    public ResponseEntity<Racer> getRacerById(@PathVariable("id") int id){
+    public ResponseEntity<Racer> getRacerById(@PathVariable("id") Long id){
         return new ResponseEntity<>(racerRepository.getById(id),HttpStatus.OK);
     }
 

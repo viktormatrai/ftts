@@ -8,7 +8,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(path = "racer")
 public interface RacerRepository extends JpaRepository<Racer, Long> {
 
-    Racer getById(@Param("id") Integer id);
+    Racer getById(@Param("id") Long id);
 
 
   /*  @Query(value = "SELECT r FROM Racer r WHERE firstName LIKE %:firstName% ORDER BY id")

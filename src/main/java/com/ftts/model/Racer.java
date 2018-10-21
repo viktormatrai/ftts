@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -15,13 +16,15 @@ public class Racer {
     @Id
     @GeneratedValue
     private Long id;
+
     @Column(nullable = false)
     private String name;
 
-  //  @ManyToOne
-  //  private Team team;
-  //  @OneToMany(mappedBy = "racer")
-  //  private List<Race> race;
+   // @OneToMany(mappedBy = "racer")
+   // private List<Race> race;
+    @ManyToOne
+    private Team team;
+    //
   //  @NotNull
   //  private Gender gender;
   //  @OneToMany(mappedBy = "racer")
