@@ -1,8 +1,10 @@
 package com.ftts;
 
+import com.ftts.model.Gender;
 import com.ftts.model.Race;
 import com.ftts.model.Racer;
 import com.ftts.model.Team;
+import com.ftts.repository.RaceRepository;
 import com.ftts.repository.RacerRepository;
 import com.ftts.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class FTTSRun {
     @Autowired
     TeamRepository teamRepository;
 
+    @Autowired
+    RaceRepository raceRepository;
+
     public static void main(String[] args) {
         SpringApplication.run(FTTSRun.class, args);
     }
@@ -32,11 +37,25 @@ public class FTTSRun {
 
             teamRepository.save(pavéFixedGearTeam);
 
-            Racer viktor = Racer.builder().name("Viktor").points(20).team(pavéFixedGearTeam).build();
-            Racer simon = Racer.builder().name("Simon").points(20).team(pavéFixedGearTeam).build();
+            Team bám = Team.builder().teamName("BÁM").build();
+
+            teamRepository.save(bám);
+
+
+            Racer viktor = Racer.builder().name("Viktor").points(20).team(pavéFixedGearTeam)
+                    .race(raceRepository.findAll()).gender(Gender.MALE).build();
+            Racer simon = Racer.builder().name("Simon").points(20).team(pavéFixedGearTeam)
+                    .race(raceRepository.findAll()).gender(Gender.MALE).build();
 
             racerRepository.save(viktor);
             racerRepository.save(simon);
+
+            Race kisoroszi = Race.builder().raceName("Kisoroszi").build();
+            Race pilis = Race.builder().raceName("Pilis").build();
+
+            raceRepository.save(kisoroszi);
+            raceRepository.save(pilis);
+
         };
     }
 

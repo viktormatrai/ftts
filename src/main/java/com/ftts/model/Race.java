@@ -27,7 +27,6 @@ public class Race {
     private LocalTime finalTime;
 
     @ManyToOne
-    @EqualsAndHashCode.Exclude
     private Racer racer;
  //   @ManyToOne(targetEntity = Volunteer.class)
  //   private Volunteer volunteer;

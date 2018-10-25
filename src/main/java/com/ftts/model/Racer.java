@@ -10,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Getter
 @Entity
 public class Racer {
 
@@ -20,8 +21,9 @@ public class Racer {
     @Column(nullable = false)
     private String name;
 
-   // @OneToMany(mappedBy = "racer")
-   // private List<Race> race;
+    @OneToMany(mappedBy = "racer")
+    private List<Race> race;
+
     @ManyToOne
     private Team team;
     //
