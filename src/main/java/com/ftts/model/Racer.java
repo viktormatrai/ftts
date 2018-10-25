@@ -19,7 +19,7 @@ public class Racer {
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String nameOfRacer;
 
     @OneToMany(mappedBy = "racer")
     private List<Race> race;

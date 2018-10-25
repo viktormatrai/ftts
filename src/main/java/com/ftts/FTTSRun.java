@@ -42,13 +42,16 @@ public class FTTSRun {
             teamRepository.save(bám);
 
 
-            Racer viktor = Racer.builder().name("Viktor").points(20).team(pavéFixedGearTeam)
+            Racer viktor = Racer.builder().nameOfRacer("Viktor").points(20).team(pavéFixedGearTeam)
                     .race(raceRepository.findAll()).gender(Gender.MALE).build();
-            Racer simon = Racer.builder().name("Simon").points(20).team(pavéFixedGearTeam)
+            Racer simon = Racer.builder().nameOfRacer("Simon").points(20).team(pavéFixedGearTeam)
+                    .race(raceRepository.findAll()).gender(Gender.MALE).build();
+            Racer ádi = Racer.builder().nameOfRacer("Ádi").points(20).team(pavéFixedGearTeam)
                     .race(raceRepository.findAll()).gender(Gender.MALE).build();
 
             racerRepository.save(viktor);
             racerRepository.save(simon);
+            racerRepository.save(ádi);
 
             Race kisoroszi = Race.builder().raceName("Kisoroszi").build();
             Race pilis = Race.builder().raceName("Pilis").build();

@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -27,13 +28,14 @@ public class RacerController {
         return new ResponseEntity<>(racerRepository.getById(id),HttpStatus.OK);
     }
 
-  /*  @GetMapping(value = "/racers/{gender}", produces = "application/json")
+   /* @GetMapping(value = "/racers/{gender}", produces = "application/json")
     public ResponseEntity<List<Racer>> getRacersByGender(@PathVariable("gender") String gender){
-        return new ResponseEntity<>(racerRepository.findAllByGender(gender), HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/racers/{firstName}", produces = "application/json")
-    public ResponseEntity<List<Racer>> getRacersByFirstName(@PathVariable("firstName") String firstName){
-        return new ResponseEntity<>(racerRepository.findAllByFirstName(firstName), HttpStatus.OK);
+        return new ResponseEntity<>(racerRepository.getAllByGender(gender), HttpStatus.OK);
     }*/
+
+    @GetMapping(value = "/racers/{nameOfRacer}", produces = "application/json")
+    public ResponseEntity<Racer> getRacerByName(@PathVariable("name") String nameOfRacer){
+        return new ResponseEntity<>(racerRepository.getByNameOfRacer(nameOfRacer), HttpStatus.OK);
+
+    }
 }
