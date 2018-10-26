@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -18,11 +19,11 @@ public class Tag {
     @GeneratedValue
     private Long Id;
     private String tag;
- //   @ManyToOne
- //   private Racer racer;
- //   @ManyToOne
- //   private Race raceName;
- //   @OneToMany(mappedBy = "tags")
- //   private List<Pictures> pictures;
+    @ManyToOne
+    private Racer racer;
+    @ManyToOne
+    private Race raceName;
+    @OneToMany(mappedBy = "tags")
+    private List<Pictures> pictures;
 
    }

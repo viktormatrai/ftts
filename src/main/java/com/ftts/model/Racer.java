@@ -26,8 +26,9 @@ public class Racer {
 
     @ManyToOne
     private Team team;
-    //
+
     @NonNull
+    @Enumerated(EnumType.STRING)
     private Gender gender;
   //  @OneToMany(mappedBy = "racer")
   //  private List<Tag> tag;
