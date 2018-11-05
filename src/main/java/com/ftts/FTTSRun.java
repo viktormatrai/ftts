@@ -71,8 +71,10 @@ public class FTTSRun {
             Tag simonTag = Tag.builder().tag("Simon").build();
             tagRepository.save(simonTag);
 
-            Volunteer segitoKedves = Volunteer.builder().firstName("Segítő").lastName("Kedves").email("segito@segit.hu").build();
-            Volunteer segitoGeza = Volunteer.builder().firstName("Stopper").lastName("Géza").email("geza@segit.hu").build();
+            Volunteer segitoKedves = Volunteer.builder().nameOfVolunteer("kedves")
+                    .firstName("Segítő").lastName("Kedves").email("segito@segit.hu").build();
+            Volunteer segitoGeza = Volunteer.builder().nameOfVolunteer("Geza")
+                    .firstName("Stopper").lastName("Géza").email("geza@segit.hu").build();
 
 
             volunteerRepository.save(segitoKedves);

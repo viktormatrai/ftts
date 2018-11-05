@@ -16,6 +16,6 @@ public interface VolunteerRepository extends JpaRepository<Volunteer, Long> {
     List<Volunteer> getByRace(@Param("race") String race);*/
 
     @Query(value = "SELECT v FROM Volunteer v WHERE nameOfVolunteer LIKE %:nameOfVolunteer%")
-    Racer getByNameOfVolunteer(@Param("nameOfVolunteer") String nameOfVolunteer);
+    Volunteer getByNameOfVolunteer(@Param("nameOfVolunteer") String nameOfVolunteer);
 
 }

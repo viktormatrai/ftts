@@ -1,9 +1,6 @@
 package com.ftts.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -25,6 +22,9 @@ public class Volunteer {
     private String firstName;
     @NotNull
     private String lastName;
+
+    @NonNull
+    private String nameOfVolunteer;
    // @OneToMany(mappedBy = "volunteer")
    // private List<Race> race;
 
