@@ -51,11 +51,11 @@ public class FTTSRun {
 
 
             Racer viktor = Racer.builder().nameOfRacer("Viktor").points(20)
-                    .race(raceRepository.findAll()).gender(Gender.MALE).build();
+                    .gender(Gender.MALE).build();
             Racer simon = Racer.builder().nameOfRacer("Simon").points(20)
-                    .race(raceRepository.findAll()).gender(Gender.MALE).build();
+                    .gender(Gender.MALE).build();
             Racer ádi = Racer.builder().nameOfRacer("Ádi").points(20)
-                    .race(raceRepository.findAll()).gender(Gender.MALE).build();
+                    .gender(Gender.MALE).build();
 
             racerRepository.save(viktor);
             racerRepository.save(simon);

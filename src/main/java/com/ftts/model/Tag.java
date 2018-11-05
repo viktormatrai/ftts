@@ -20,9 +20,9 @@ public class Tag {
     private Long Id;
     private String tag;
 
-  //  @ManyToOne
+    @ManyToOne
   //  @JoinColumns(@JoinColumn( name = "racer_name", referencedColumnName = "nameOfRacer"))
-  //  private Racer racer;
+    private Racer racer;
 
     @ManyToOne
     private Race race;

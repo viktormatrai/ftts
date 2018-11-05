@@ -26,8 +26,7 @@ public class Race {
     private Long neutralZoneThree;
     private LocalTime finalTime;
 
-    @ManyToOne
-    private Racer racer;
+ //   private Racer racer;
 
  //   @ManyToOne(targetEntity = Volunteer.class)
  //   private Volunteer volunteer;

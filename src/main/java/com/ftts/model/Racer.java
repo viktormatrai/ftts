@@ -20,8 +20,8 @@ public class Racer {
     @Column(nullable = false)
     private String nameOfRacer;
 
-    @OneToMany(mappedBy = "racer")
-    private List<Race> race;
+  //  @OneToMany(mappedBy = "racer")
+  //  private List<Race> race;
 
    // @ManyToOne
    // @JoinColumn(referencedColumnName = "teamName", name = "team_name")
@@ -30,8 +30,8 @@ public class Racer {
     @NonNull
     @Enumerated(EnumType.STRING)
     private Gender gender;
-   // @OneToMany(mappedBy = "racer")
-   // private List<Tag> tag;
+    @OneToMany(mappedBy = "racer")
+    private List<Tag> tag;
     int points;
 
 }
