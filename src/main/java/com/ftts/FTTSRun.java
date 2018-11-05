@@ -1,10 +1,7 @@
 package com.ftts;
 
 import com.ftts.model.*;
-import com.ftts.repository.RaceRepository;
-import com.ftts.repository.RacerRepository;
-import com.ftts.repository.TagRepository;
-import com.ftts.repository.TeamRepository;
+import com.ftts.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,6 +25,9 @@ public class FTTSRun {
 
     @Autowired
     TagRepository tagRepository;
+
+    @Autowired
+    VolunteerRepository volunteerRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(FTTSRun.class, args);
@@ -71,6 +71,12 @@ public class FTTSRun {
             Tag simonTag = Tag.builder().tag("Simon").build();
             tagRepository.save(simonTag);
 
+            Volunteer segitoKedves = Volunteer.builder().firstName("Segítő").lastName("Kedves").email("segito@segit.hu").build();
+            Volunteer segitoGeza = Volunteer.builder().firstName("Stopper").lastName("Géza").email("geza@segit.hu").build();
+
+
+            volunteerRepository.save(segitoKedves);
+            volunteerRepository.save(segitoGeza);
         };
     }
 

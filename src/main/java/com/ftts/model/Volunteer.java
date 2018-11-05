@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -24,7 +25,7 @@ public class Volunteer {
     private String firstName;
     @NotNull
     private String lastName;
-  //  @OneToMany(mappedBy = "volunteer")
-  //  private List<Race> race;
+   // @OneToMany(mappedBy = "volunteer")
+   // private List<Race> race;
 
  }

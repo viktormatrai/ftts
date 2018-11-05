@@ -28,8 +28,8 @@ public class Race {
 
  //   private Racer racer;
 
- //   @ManyToOne(targetEntity = Volunteer.class)
- //   private Volunteer volunteer;
+   // @ManyToOne
+   // private Volunteer volunteer;
  //   @OneToMany(mappedBy = "raceName")
  //   private List<Tag> tag;
 
