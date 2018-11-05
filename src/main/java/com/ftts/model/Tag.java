@@ -22,7 +22,7 @@ public class Tag {
     @ManyToOne
     private Racer racer;
     @ManyToOne
-    private Race raceName;
+    private Race race;
     @OneToMany(mappedBy = "tags")
     private List<Pictures> pictures;
 

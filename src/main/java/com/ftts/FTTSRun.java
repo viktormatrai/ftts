@@ -13,6 +13,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+
+
+
 @SpringBootApplication
 public class FTTSRun {
 
@@ -35,11 +38,13 @@ public class FTTSRun {
             Team pavéFixedGearTeam = Team.builder().
                     teamName("Pavé Fixed Gear Team").build();
 
+
             teamRepository.save(pavéFixedGearTeam);
 
             Team bám = Team.builder().teamName("BÁM").build();
 
             teamRepository.save(bám);
+
 
 
             Racer viktor = Racer.builder().nameOfRacer("Viktor").points(20).team(pavéFixedGearTeam)

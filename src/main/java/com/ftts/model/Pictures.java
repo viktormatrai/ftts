@@ -20,7 +20,7 @@ public class Pictures {
     @Id
     @GeneratedValue
     private int id;
-    @ManyToOne(targetEntity = Pictures.class)
+    @ManyToOne
     private Tag tags;
     private String pictureURL;
 

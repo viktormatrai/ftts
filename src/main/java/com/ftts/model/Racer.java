@@ -3,7 +3,6 @@ package com.ftts.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalTime;
 import java.util.List;
 
 @Data
@@ -30,8 +29,8 @@ public class Racer {
     @NonNull
     @Enumerated(EnumType.STRING)
     private Gender gender;
-  //  @OneToMany(mappedBy = "racer")
-  //  private List<Tag> tag;
+    @OneToMany(mappedBy = "racer")
+    private List<Tag> tag;
     int points;
 
 }

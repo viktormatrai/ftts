@@ -1,6 +1,9 @@
 package com.ftts.repository;
 
+import com.ftts.model.Gender;
 import com.ftts.model.Racer;
+import com.ftts.model.Team;
+import javafx.scene.canvas.GraphicsContext;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
@@ -23,18 +25,34 @@ public class RacerRepositoryTest {
     private RacerRepository racerRepository;
 
     @Autowired
+    private TeamRepository teamRepository;
+
+    @Autowired
     private TestEntityManager testEntityManager;
 
     @Test
-    public void saveOneRacer(){
+    public void saveRacer(){
         Racer tesztGyurci = Racer.builder()
-                .name("Teszt Gyurci")
+                .nameOfRacer("Teszt Gyurci")
+                .gender(Gender.MALE)
                 .points(14)
                 .build();
 
         racerRepository.save(tesztGyurci);
 
         List<Racer> racers = racerRepository.findAll();
-        assertThat(racers).hasSize(1);
+        assertThat(racers).hasSize(4);
+    }
+
+    @Test
+    public void saveTeam(){
+        Team testTeam = Team.builder().teamName("test team").build();
+
+
+        teamRepository.save(testTeam);
+
+        List<Team> teams= teamRepository.findAll();
+
+        assertThat(teams).hasSize(3);
     }
 }
