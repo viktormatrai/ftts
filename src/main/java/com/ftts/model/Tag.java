@@ -19,8 +19,11 @@ public class Tag {
     @GeneratedValue
     private Long Id;
     private String tag;
-    @ManyToOne
-    private Racer racer;
+
+  //  @ManyToOne
+  //  @JoinColumns(@JoinColumn( name = "racer_name", referencedColumnName = "nameOfRacer"))
+  //  private Racer racer;
+
     @ManyToOne
     private Race race;
     @OneToMany(mappedBy = "tags")

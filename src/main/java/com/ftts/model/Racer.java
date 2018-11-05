@@ -23,14 +23,15 @@ public class Racer {
     @OneToMany(mappedBy = "racer")
     private List<Race> race;
 
-    @ManyToOne
-    private Team team;
+   // @ManyToOne
+   // @JoinColumn(referencedColumnName = "teamName", name = "team_name")
+   // private Team team;
 
     @NonNull
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    @OneToMany(mappedBy = "racer")
-    private List<Tag> tag;
+   // @OneToMany(mappedBy = "racer")
+   // private List<Tag> tag;
     int points;
 
 }
