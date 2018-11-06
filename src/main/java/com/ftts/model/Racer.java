@@ -17,21 +17,24 @@ public class Racer {
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false)
+    @NonNull
     private String nameOfRacer;
 
-  //  @OneToMany(mappedBy = "racer")
-  //  private List<Race> race;
+    @OneToMany(mappedBy = "racer")
+    private List<Race> race;
 
-   // @ManyToOne
-   // @JoinColumn(referencedColumnName = "teamName", name = "team_name")
-   // private Team team;
+
+  //  @ManyToOne
+  //  @JoinColumn(name = "teamId")
+  //  private Team team;
 
     @NonNull
     @Enumerated(EnumType.STRING)
     private Gender gender;
+
     @OneToMany(mappedBy = "racer")
     private List<Tag> tag;
+
     int points;
 
 }

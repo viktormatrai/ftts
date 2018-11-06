@@ -32,6 +32,6 @@ public class RacerController {
     @GetMapping(value = "/racers/{nameOfRacer}", produces = "application/json")
     public ResponseEntity<Racer> getRacerByName(@PathVariable("nameOfRacer") String nameOfRacer){
         return new ResponseEntity<>(racerRepository.getByNameOfRacer(nameOfRacer), HttpStatus.OK);
-
     }
+
 }

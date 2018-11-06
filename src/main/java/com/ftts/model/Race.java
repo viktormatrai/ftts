@@ -26,7 +26,9 @@ public class Race {
     private Long neutralZoneThree;
     private LocalTime finalTime;
 
- //   private Racer racer;
+    @ManyToOne
+    @JoinColumn(name = "racerId")
+    private Racer racer;
 
    // @ManyToOne
    // private Volunteer volunteer;

@@ -1,12 +1,9 @@
 package com.ftts.repository;
 
-import com.ftts.model.Racer;
 import com.ftts.model.Volunteer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
-import java.util.List;
 
 public interface VolunteerRepository extends JpaRepository<Volunteer, Long> {
 
