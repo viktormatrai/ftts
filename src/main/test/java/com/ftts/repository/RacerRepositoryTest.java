@@ -24,12 +24,6 @@ public class RacerRepositoryTest {
     @Autowired
     private RacerRepository racerRepository;
 
-    @Autowired
-    private TeamRepository teamRepository;
-
-    @Autowired
-    private TestEntityManager testEntityManager;
-
     @Test
     public void saveRacer(){
         Racer tesztGyurci = Racer.builder()
@@ -44,15 +38,4 @@ public class RacerRepositoryTest {
         assertThat(racers).hasSize(4);
     }
 
-    @Test
-    public void saveTeam(){
-        Team testTeam = Team.builder().teamName("test team").build();
-
-
-        teamRepository.save(testTeam);
-
-        List<Team> teams= teamRepository.findAll();
-
-        assertThat(teams).hasSize(3);
-    }
 }
