@@ -30,10 +30,10 @@ public class Race {
     @JoinColumn(name = "racerId")
     private Racer racer;
 
-   // @ManyToOne
-   // private Volunteer volunteer;
- //   @OneToMany(mappedBy = "raceName")
- //   private List<Tag> tag;
+    // @ManyToOne
+    // private Volunteer volunteer;
+    // @OneToMany(mappedBy = "race")
+    //   private List<Tag> tag;
 
 
 }

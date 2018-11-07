@@ -21,12 +21,11 @@ public class Tag {
     private String tag;
 
     @ManyToOne
-  //  @JoinColumns(@JoinColumn( name = "racer_name", referencedColumnName = "nameOfRacer"))
     private Racer racer;
 
     @ManyToOne
     private Race race;
-    @OneToMany(mappedBy = "tags")
-    private List<Pictures> pictures;
+    @OneToMany(mappedBy = "tag")
+    private List<Picture> pictures;
 
    }
