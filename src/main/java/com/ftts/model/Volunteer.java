@@ -16,11 +16,11 @@ public class Volunteer {
     @Id
     @GeneratedValue
     private Long id;
-    @NotNull
+    @NonNull
     private String email;
-    @NotNull
+    @NonNull
     private String firstName;
-    @NotNull
+    @NonNull
     private String lastName;
 
     @NonNull

@@ -5,9 +5,7 @@ import com.ftts.repository.VolunteerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,4 +24,10 @@ public class VolunteerController {
     public ResponseEntity<Volunteer> getVolunteerByName(@PathVariable("nameOfVolunteer") String nameOfVolunteer){
         return new ResponseEntity<>(volunteerRepository.getByNameOfVolunteer(nameOfVolunteer), HttpStatus.OK);
     }
+
+    @PostMapping(value = "/volunteers/apply", consumes = "application/json", produces = "application/json")
+    public void saveVolunteer(@RequestBody Volunteer volunteer){
+        volunteerRepository.save(volunteer);
+    }
+
 }
