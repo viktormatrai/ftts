@@ -30,6 +30,9 @@ public class FTTSRun {
     @Autowired
     VolunteerRepository volunteerRepository;
 
+    @Autowired
+    PictureRepository pictureRepository;
+
     public static void main(String[] args) {
         SpringApplication.run(FTTSRun.class, args);
     }
@@ -85,6 +88,11 @@ public class FTTSRun {
 
             volunteerRepository.save(segitoKedves);
             volunteerRepository.save(segitoGeza);
+
+            String samplePicture = "https://drive.google.com/file/d/177LLI1JQB5r9xQpUblVSTQgnCs6UjuS2/view?usp=sharing";
+            Picture pictureSample = Picture.builder().pictureURL(samplePicture).build();
+
+            pictureRepository.save(pictureSample);
         };
     }
 

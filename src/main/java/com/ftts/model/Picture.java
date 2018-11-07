@@ -5,23 +5,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-public class Pictures {
+public class Picture {
 
     @Id
     @GeneratedValue
     private int id;
     @ManyToOne
-    private Tag tags;
+    @JoinColumn(referencedColumnName = "tag")
+    private Tag tag;
     private String pictureURL;
 
 }
