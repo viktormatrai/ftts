@@ -26,9 +26,8 @@ public class Race {
     private Long neutralZoneThree;
     private LocalTime finalTime;
 
-    @ManyToOne
-    @JoinColumn(name = "racerId")
-    private Racer racer;
+    @ManyToMany(mappedBy = "races", cascade = CascadeType.MERGE)
+    private List<Racer> racers;
 
     // @ManyToOne
     // private Volunteer volunteer;

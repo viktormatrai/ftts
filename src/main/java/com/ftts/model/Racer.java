@@ -1,9 +1,11 @@
 package com.ftts.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
@@ -20,13 +22,25 @@ public class Racer {
     @NonNull
     private String nameOfRacer;
 
-    @OneToMany(mappedBy = "racer")
-    private List<Race> race;
+    @JsonIgnore
+    @ManyToMany(cascade = {
+            CascadeType.MERGE
+    })
+    @JoinTable(
+            name = "racer_race",
+            joinColumns = { @JoinColumn(name = "racer_id") },
+            inverseJoinColumns = { @JoinColumn(name = "race_id")}
+            )
+    private List<Race> races;
 
 
-  //  @ManyToOne
-  //  @JoinColumn(name = "teamId")
-  //  private Team team;
+    @ManyToOne
+    @JoinTable(
+            name = "racers_teams",
+            joinColumns = {@JoinColumn(name = "racer_id")},
+            inverseJoinColumns = {@JoinColumn(name = "team_id")}
+            )
+    private Team team;
 
     @NonNull
     @Enumerated(EnumType.STRING)
@@ -37,4 +51,12 @@ public class Racer {
 
     int points;
 
+    public void addRace(Race race){
+        races.add(race);
+        race.setRacers((List<Racer>) this);
+    }
+
+    public List<String> getRaceNameList(){
+        return this.races.stream().map(race -> race.getRaceName()).collect(Collectors.toList());
+    }
 }

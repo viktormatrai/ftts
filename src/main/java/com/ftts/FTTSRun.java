@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,9 @@ public class FTTSRun {
     }
 
     @Bean
+    @Transactional
     public CommandLineRunner init(){
+
         return args -> {
             Team pavéFixedGearTeam = Team.builder().
                     teamName("Pavé Fixed Gear Team").build();
@@ -58,8 +61,8 @@ public class FTTSRun {
             Race kisoroszi = Race.builder().raceName("Kisoroszi").build();
             Race pilis = Race.builder().raceName("Pilis").build();
 
-            raceRepository.save(kisoroszi);
-            raceRepository.save(pilis);
+            raceRepository.saveAndFlush(kisoroszi);
+            raceRepository.saveAndFlush(pilis);
 
             List<Race> listOfRaces = new ArrayList<>();
 
@@ -67,11 +70,15 @@ public class FTTSRun {
             listOfRaces.add(pilis);
 
             Racer viktor = Racer.builder().nameOfRacer("Viktor").points(20)
-                    .gender(Gender.MALE).race(listOfRaces).build();
+                    .gender(Gender.MALE).races(listOfRaces)/*.team(pavéFixedGearTeam).*/.build();
             Racer simon = Racer.builder().nameOfRacer("Simon").tag(tagList).points(20)
                     .gender(Gender.MALE).build();
             Racer ádi = Racer.builder().nameOfRacer("Ádi").points(20)
                     .gender(Gender.MALE).build();
+
+            List<Racer> listOfRacers = new ArrayList<>();
+            listOfRacers.add(viktor);
+            kisoroszi.setRacers(listOfRacers);
 
             racerRepository.save(viktor);
             racerRepository.save(simon);
