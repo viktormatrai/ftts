@@ -33,7 +33,6 @@ public class Racer {
             )
     private List<Race> races;
 
-
     @ManyToOne
     @JoinTable(
             name = "racers_teams",

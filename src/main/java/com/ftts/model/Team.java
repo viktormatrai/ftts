@@ -1,5 +1,6 @@
 package com.ftts.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +21,8 @@ public class Team {
     private Long id;
     private String teamName;
 
+
+    @JsonIgnore
     @OneToMany(mappedBy = "team")
     private List<Racer> racer;
 
