@@ -24,11 +24,26 @@ public class Team {
 
     @JsonIgnore
     @OneToMany(mappedBy = "team")
-    private List<Racer> racer;
+    private List<Racer> racers;
 
-   // @OneToMany
-   // private List<Race> race;
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            name = "team_race",
+            joinColumns = @JoinColumn(name = "team_id"),
+            inverseJoinColumns = @JoinColumn(name = "race_id")
+            )
+    private List<Race> races;
+
     int teamPoints;
 
 
+    public void calculateTeamPoints(List<Racer> racers){
+
+        int sum = racers.stream()
+                .mapToInt(Racer::getPoints)
+                .sum();
+
+        this.teamPoints = sum;
+    }
 }

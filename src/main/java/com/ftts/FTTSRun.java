@@ -88,7 +88,7 @@ public class FTTSRun {
             listOfRacersInTeam.add(simon);
             listOfRacersInTeam.add(ádi);
 
-            pavéFixedGearTeam.setRacer(listOfRacersInTeam);
+            pavéFixedGearTeam.setRacers(listOfRacersInTeam);
 
             racerRepository.save(viktor);
             racerRepository.save(simon);
