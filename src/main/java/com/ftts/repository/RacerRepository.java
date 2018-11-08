@@ -19,8 +19,8 @@ public interface RacerRepository extends JpaRepository<Racer, Long> {
     @Query(value = "SELECT r FROM Racer r WHERE nameOfRacer LIKE %:nameOfRacer%")
     Racer getByNameOfRacer(@Param("nameOfRacer") String nameOfRacer);
 
-    @Query(value = "SELECT r FROM Racer r WHERE gender LIKE %:gender%")
-    List<Racer>getAllByGender(@Param("gender") String gender);
+    @Query(value = "SELECT r FROM Racer r WHERE r.gender = :gender")
+    List<Racer>getAllByGender(@Param("gender") Gender gender);
 
 
 

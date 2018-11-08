@@ -23,7 +23,7 @@ public class RacerController {
 
     @GetMapping(value = "/{gender}", produces = "application/json")
     public ResponseEntity<List<Racer>> getRacersByGender(@PathVariable("gender") String gender){
-        return new ResponseEntity<>(racerRepository.getAllByGender(String.valueOf(Gender.valueOf(gender))), HttpStatus.OK);
+        return new ResponseEntity<>(racerRepository.getAllByGender(Gender.valueOf(gender)), HttpStatus.OK);
     }
 
     @GetMapping(value = "/racers/{nameOfRacer}", produces = "application/json")
