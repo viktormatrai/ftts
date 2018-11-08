@@ -100,8 +100,10 @@ public class FTTSRun {
             Volunteer segitoKedves = Volunteer.builder().nameOfVolunteer("kedves")
                     .firstName("Segítő").lastName("Kedves").email("segito@segit.hu").build();
             Volunteer segitoGeza = Volunteer.builder().nameOfVolunteer("Geza")
-                    .firstName("Stopper").lastName("Géza").email("geza@segit.hu").build();
+                    .firstName("Stopper").lastName("Géza").email("geza@segit.hu").races(listOfRaces).build();
 
+            List<Volunteer> listOfVolunteersOnRaces = new ArrayList<>();
+            listOfVolunteersOnRaces.add(segitoGeza);
 
             volunteerRepository.save(segitoKedves);
             volunteerRepository.save(segitoGeza);

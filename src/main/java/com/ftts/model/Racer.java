@@ -23,9 +23,7 @@ public class Racer {
     private String nameOfRacer;
 
     @JsonIgnore
-    @ManyToMany(cascade = {
-            CascadeType.MERGE
-    })
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
             name = "racer_race",
             joinColumns = { @JoinColumn(name = "racer_id") },

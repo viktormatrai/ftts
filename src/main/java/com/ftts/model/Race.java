@@ -29,8 +29,8 @@ public class Race {
     @ManyToMany(mappedBy = "races", cascade = CascadeType.MERGE)
     private List<Racer> racers;
 
-    // @ManyToOne
-    // private Volunteer volunteer;
+    @ManyToMany(mappedBy = "races", cascade = CascadeType.MERGE)
+    private List<Volunteer> volunteers;
     // @OneToMany(mappedBy = "race")
     //   private List<Tag> tag;
 
