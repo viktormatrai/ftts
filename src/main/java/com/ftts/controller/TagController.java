@@ -27,7 +27,7 @@ public class TagController {
     }
 
     @PostMapping(value = "/racers/add-tag", consumes = "application/json", produces = "application/json")
-    public void saveRacer(@RequestBody Tag tag){
+    public void saveTag(@RequestBody Tag tag){
         tagRepository.save(tag);
     }
 

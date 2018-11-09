@@ -27,7 +27,7 @@ public class PictureController {
     } */
 
     @PostMapping(value = "/pictures/upload", consumes = "application/json", produces = "application/json")
-    public void saveRacer(@RequestBody Picture picture){
+    public void savePicture(@RequestBody Picture picture){
         pictureRepository.save(picture);
     }
 }

@@ -5,9 +5,7 @@ import com.ftts.model.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +24,12 @@ public class TeamController {
     public ResponseEntity<Team> getTeamById(@PathVariable("id") Long id){
         return new ResponseEntity<>(teamRepository.getById(id), HttpStatus.OK);
     }
+
+    @PostMapping(value = "/teams/add-team", consumes = "application/json", produces = "application/json")
+    public void saveTeam(@RequestBody Team team){
+        teamRepository.save(team);
+    }
+
 
     /*@GetMapping(value = "/teams/{teamName}", produces = "application/json")
     public ResponseEntity<Team> getTeamByTeamName(@PathVariable("teamName") String teamName){
