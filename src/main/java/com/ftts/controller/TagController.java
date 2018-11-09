@@ -18,9 +18,6 @@ public class TagController {
     @Autowired
     TagRepository tagRepository;
 
-    @Autowired
-    RacerRepository racerRepository;
-
     @GetMapping(value = "/tag", produces = "application/json")
     public ResponseEntity<List<Tag>> getTags(){
         return new ResponseEntity<>(tagRepository.findAll(), HttpStatus.OK);
@@ -31,10 +28,6 @@ public class TagController {
         return new ResponseEntity<>(tagRepository.getByTag(tag), HttpStatus.OK);
     }
 
-   /* @GetMapping (value = "/tag/{racerId}", produces = "application/json")
-    public ResponseEntity<List<Tag>> getTagsForRacer(@PathVariable("racerId") Long racerId){
-        return new ResponseEntity<>(tagRepository.getByRacerId(racerId), HttpStatus.OK);
-    }*/
 
 
 
