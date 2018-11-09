@@ -46,13 +46,13 @@ public class FTTSRun {
             Team pavéFixedGearTeam = Team.builder().
                     teamName("Pavé Fixed Gear Team").build();
 
+            teamRepository.save(pavéFixedGearTeam);
+
             Tag simonTag = Tag.builder().tag("Simon").build();
             tagRepository.save(simonTag);
 
             List<Tag> tagList = new ArrayList<>();
             tagList.add(simonTag);
-
-            teamRepository.save(pavéFixedGearTeam);
 
             Team bám = Team.builder().teamName("BÁM").build();
 
@@ -119,13 +119,13 @@ public class FTTSRun {
             pavéFixedGearTeam.setRacers(listOfRacersInTeam);
 
             pavéFixedGearTeam.calculateTeamPoints(listOfRacersInTeam);
-            teamRepository.save(pavéFixedGearTeam);
 
             racerRepository.save(viktor);
             racerRepository.save(simon);
             racerRepository.save(ádi);
             racerRepository.save(levi);
 
+            teamRepository.save(pavéFixedGearTeam);
 
 
             Volunteer segitoKedves = Volunteer.builder().nameOfVolunteer("kedves")

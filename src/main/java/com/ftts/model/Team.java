@@ -1,13 +1,11 @@
 package com.ftts.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
@@ -19,8 +17,8 @@ public class Team {
     @Id
     @GeneratedValue
     private Long id;
+    @NonNull
     private String teamName;
-
 
     @JsonIgnore
     @OneToMany(mappedBy = "team")
@@ -45,5 +43,13 @@ public class Team {
                 .sum();
 
         this.teamPoints = sum;
+    }
+
+    public List<String> getRaceNameList(){
+        return this.races.stream().map(racer -> racer.getRaceName()).collect(Collectors.toList());
+    }
+
+    public List<String> getRacersInTeam(){
+        return this.racers.stream().map(racer -> racer.getNameOfRacer()).collect(Collectors.toList());
     }
 }
