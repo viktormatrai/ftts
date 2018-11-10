@@ -3,6 +3,7 @@ package com.ftts.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -19,6 +20,8 @@ public class Race {
 
     @NonNull
     private String raceName;
+
+    private LocalDate dateOfRace;
     private LocalTime startingTime;
     private LocalTime finishingTime;
     private Long neutralZoneOne;
@@ -34,5 +37,18 @@ public class Race {
     // @OneToMany(mappedBy = "race")
     //   private List<Tag> tag;
 
+    public void calculateFinalTime(){
+
+        Long startingTimeHour = Long.valueOf(this.startingTime.getHour());
+        Long startingTimeMinute = Long.valueOf(this.startingTime.getMinute());
+        Long startingTimeSecond = Long.valueOf(this.startingTime.getSecond());
+
+        this.finalTime= finishingTime.minusHours(startingTimeHour)
+                                    .minusMinutes(startingTimeMinute)
+                                    .minusSeconds(startingTimeSecond)
+                                    .minusSeconds(neutralZoneOne)
+                                    .minusSeconds(neutralZoneTwo)
+                                    .minusSeconds(neutralZoneThree);
+    }
 
 }
