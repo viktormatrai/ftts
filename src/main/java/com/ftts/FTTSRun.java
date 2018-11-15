@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import javax.transaction.Transactional;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
