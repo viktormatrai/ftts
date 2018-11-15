@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -56,4 +57,6 @@ public class Racer {
     public List<String> getRaceNameList(){
         return this.races.stream().map(race -> race.getRaceName()).collect(Collectors.toList());
     }
+
+
 }

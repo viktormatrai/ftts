@@ -37,8 +37,12 @@ public class Race {
     // @OneToMany(mappedBy = "race")
     //   private List<Tag> tag;
 
-    public void calculateFinalTime(){
+    public void calculateFinalTime(LocalTime startingTime, LocalTime finishingTime,
+                                   Long neutralZoneOne,
+                                   Long neutralZoneTwo,
+                                   Long neutralZoneThree){
 
+        this.startingTime = startingTime;
         Long startingTimeHour = Long.valueOf(this.startingTime.getHour());
         Long startingTimeMinute = Long.valueOf(this.startingTime.getMinute());
         Long startingTimeSecond = Long.valueOf(this.startingTime.getSecond());
@@ -49,6 +53,26 @@ public class Race {
                                     .minusSeconds(neutralZoneOne)
                                     .minusSeconds(neutralZoneTwo)
                                     .minusSeconds(neutralZoneThree);
+    }
+
+    public void setStartingTimeForRacer(LocalTime startingTime){
+        this.racers.stream().forEach(racer -> setStartingTime(startingTime));
+    }
+
+    public void setFinishingTimeForRacer(LocalTime finishingTime){
+        this.racers.stream().forEach(racer -> setFinishingTime(finishingTime));
+    }
+
+    public void setNeutralZoneOneForRacer(Long neutralZoneOne){
+        this.racers.stream().forEach(racer -> setNeutralZoneOne(neutralZoneOne));
+    }
+
+    public void setNeutralZoneTwoForRacer(Long neutralZoneTwo){
+        this.racers.stream().forEach(racer -> setNeutralZoneTwo(neutralZoneTwo));
+    }
+
+    public void setNeutralZoneThreeForRacer(Long neutralZoneThree){
+        this.racers.stream().forEach(racer -> setNeutralZoneThree(neutralZoneThree));
     }
 
 }

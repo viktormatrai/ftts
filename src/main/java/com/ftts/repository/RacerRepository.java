@@ -23,7 +23,6 @@ public interface RacerRepository extends JpaRepository<Racer, Long> {
     List<Racer>getAllByGender(@Param("gender") Gender gender);
 
 
-
 }
 
 
