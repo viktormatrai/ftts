@@ -81,7 +81,7 @@ public class FTTSRun {
             Racer simon = Racer.builder()
                     .nameOfRacer("Simon")
                     .races(listOfRaces)
-                    .tag(tagList)
+                    .tags(tagList)
                     .points(20)
                     .gender(Gender.MALE)
                     .team(pavéFixedGearTeam)

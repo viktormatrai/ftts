@@ -29,23 +29,29 @@ public class Racer {
             name = "racer_race",
             joinColumns = { @JoinColumn(name = "racer_id") },
             inverseJoinColumns = { @JoinColumn(name = "race_id")}
-            )
+    )
     private List<Race> races;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinTable(
             name = "racers_teams",
             joinColumns = {@JoinColumn(name = "racer_id")},
             inverseJoinColumns = {@JoinColumn(name = "team_id")}
-            )
+    )
     private Team team;
 
     @NonNull
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @OneToMany(mappedBy = "racer")
-    private List<Tag> tag;
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            joinColumns = @JoinColumn(name = "racer_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id")
+    )
+    private List<Tag> tags;
 
     int points;
 

@@ -34,8 +34,9 @@ public class Race {
 
     @ManyToMany(mappedBy = "races", cascade = CascadeType.MERGE)
     private List<Volunteer> volunteers;
-    // @OneToMany(mappedBy = "race")
-    //   private List<Tag> tag;
+
+    @ManyToMany(mappedBy = "races", cascade = CascadeType.MERGE)
+    private List<Tag> tag;
 
     public void calculateFinalTime(LocalTime startingTime, LocalTime finishingTime,
                                    Long neutralZoneOne,

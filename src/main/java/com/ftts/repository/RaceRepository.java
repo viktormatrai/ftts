@@ -12,4 +12,6 @@ public interface RaceRepository extends JpaRepository<Race, Long>  {
 
     @Query(value = "SELECT r from Race r WHERE raceName LIKE %:raceName%")
     Race getByRaceName(@Param("raceName") String raceName);
+
+
 }

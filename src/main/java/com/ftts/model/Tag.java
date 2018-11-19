@@ -1,5 +1,6 @@
 package com.ftts.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,11 +21,17 @@ public class Tag {
     private Long Id;
     private String tag;
 
-    @ManyToOne
-    private Racer racer;
+    @ManyToMany(mappedBy = "tags", cascade = CascadeType.MERGE)
+    private List<Racer> racers;
 
-    @ManyToOne
-    private Race race;
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            name = "tags_races",
+            joinColumns = @JoinColumn(name = "race_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    private List<Race> races;
+
     @OneToMany(mappedBy = "tag")
     private List<Picture> pictures;
 

@@ -82,5 +82,4 @@ public class RaceRepositoryTest {
         assertThat(testRace.getNeutralZoneThree()).isEqualTo(2);
     }
 
-
 }
