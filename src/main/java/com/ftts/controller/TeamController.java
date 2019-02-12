@@ -31,8 +31,5 @@ public class TeamController {
     }
 
 
-    /*@GetMapping(value = "/teams/{teamName}", produces = "application/json")
-    public ResponseEntity<Team> getTeamByTeamName(@PathVariable("teamName") String teamName){
-        return new ResponseEntity<>(teamRepository.findTeamByTeamName(teamName), HttpStatus.OK);
-    }*/
+
 }

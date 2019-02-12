@@ -10,6 +10,4 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface TeamRepository extends JpaRepository<Team, Long> {
     Team getById(@Param("id") Long id);
 
-    /*@Query(value = "SELECT t FROM Team t WHERE teamName LIKE %teamName% ORDER BY id")
-    Team getTeamByTeamName(@Param("teamName") String teamName);*/
 }

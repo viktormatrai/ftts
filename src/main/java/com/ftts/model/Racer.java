@@ -20,8 +20,7 @@ public class Racer {
     @GeneratedValue
     private Long id;
 
-    @NonNull
-    private String nameOfRacer;
+    private String nickName;
 
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.MERGE)
@@ -55,13 +54,13 @@ public class Racer {
 
     int points;
 
-    public void addRace(Race race){
+    /*public void addRace(Race race){
         races.add(race);
         race.setRacers((List<Racer>) this);
-    }
+    }*/
 
     public List<String> getRaceNameList(){
-        return this.races.stream().map(race -> race.getRaceName()).collect(Collectors.toList());
+        return this.races.stream().map(Race::getRaceName).collect(Collectors.toList());
     }
 
 

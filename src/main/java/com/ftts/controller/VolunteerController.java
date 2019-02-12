@@ -20,9 +20,9 @@ public class VolunteerController {
         return new ResponseEntity<>(volunteerRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/volunteers/{nameOfVolunteer}", produces = "application/json")
-    public ResponseEntity<Volunteer> getVolunteerByName(@PathVariable("nameOfVolunteer") String nameOfVolunteer){
-        return new ResponseEntity<>(volunteerRepository.getByNameOfVolunteer(nameOfVolunteer), HttpStatus.OK);
+    @GetMapping(value = "/volunteers/{id}", produces = "application/json")
+    public ResponseEntity<Volunteer> getVolunteerByName(@PathVariable("id") int id){
+        return new ResponseEntity<>(volunteerRepository.getById((long) id), HttpStatus.OK);
     }
 
     @PostMapping(value = "/volunteers/apply", consumes = "application/json", produces = "application/json")

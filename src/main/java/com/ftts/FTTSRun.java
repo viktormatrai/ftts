@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import javax.transaction.Transactional;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,7 +70,7 @@ public class FTTSRun {
             listOfRaces.add(pilis);
 
             Racer viktor = Racer.builder()
-                    .nameOfRacer("Viktor")
+                    .nickName("Viktor")
                     .points(20)
                     .gender(Gender.MALE)
                     .races(listOfRaces)
@@ -79,16 +78,16 @@ public class FTTSRun {
                     .build();
 
             Racer simon = Racer.builder()
-                    .nameOfRacer("Simon")
+                    .nickName("Simon")
                     .races(listOfRaces)
-                    .tags(tagList)
+                   // .tags(tagList)
                     .points(20)
                     .gender(Gender.MALE)
                     .team(pavéFixedGearTeam)
                     .build();
 
             Racer ádi = Racer.builder()
-                    .nameOfRacer("Ádi")
+                    .nickName("Ádi")
                     .races(listOfRaces)
                     .points(20)
                     .gender(Gender.MALE)
@@ -96,7 +95,7 @@ public class FTTSRun {
                     .build();
 
             Racer levi = Racer.builder()
-                    .nameOfRacer("Levi")
+                    .nickName("Levi")
                     .team(pavéFixedGearTeam)
                     .points(20)
                     .races(listOfRaces)
@@ -108,7 +107,7 @@ public class FTTSRun {
             listOfRacersOnRaces.add(simon);
             listOfRacersOnRaces.add(ádi);
             listOfRacersOnRaces.add(levi);
-            kisoroszi.setRacers(listOfRacersOnRaces);
+            // kisoroszi.setRacers(listOfRacersOnRaces);
 
             List<Racer> listOfRacersInTeam = new ArrayList<>();
 

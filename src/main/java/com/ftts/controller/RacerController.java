@@ -21,19 +21,20 @@ public class RacerController {
         return new ResponseEntity<>(racerRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{gender}", produces = "application/json")
+    @GetMapping(value = "/gender/{gender}", produces = "application/json")
     public ResponseEntity<List<Racer>> getRacersByGender(@PathVariable("gender") String gender){
         return new ResponseEntity<>(racerRepository.getAllByGender(Gender.valueOf(gender)), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/racers/{nameOfRacer}", produces = "application/json")
-    public ResponseEntity<Racer> getRacerByName(@PathVariable("nameOfRacer") String nameOfRacer){
-        return new ResponseEntity<>(racerRepository.getByNameOfRacer(nameOfRacer), HttpStatus.OK);
+    @GetMapping(value = "/racers/{id}", produces = "application/json")
+    public ResponseEntity<Racer> getRacerById(@PathVariable("id") int id){
+        return new ResponseEntity<>(racerRepository.getById((long) id), HttpStatus.OK);
     }
 
     @PostMapping(value = "/racers/new-racer", consumes = "application/json", produces = "application/json")
     public void saveRacer(@RequestBody Racer racer){
         racerRepository.save(racer);
     }
+
 
 }

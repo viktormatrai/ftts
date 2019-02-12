@@ -22,6 +22,7 @@ public class Team {
 
     @JsonIgnore
     @OneToMany(mappedBy = "team")
+    @ToString.Exclude
     private List<Racer> racers;
 
     @JsonIgnore
@@ -46,10 +47,10 @@ public class Team {
     }
 
     public List<String> getRaceNameList(){
-        return this.races.stream().map(racer -> racer.getRaceName()).collect(Collectors.toList());
+        return this.races.stream().map(Race::getRaceName).collect(Collectors.toList());
     }
 
     public List<String> getRacersInTeam(){
-        return this.racers.stream().map(racer -> racer.getNameOfRacer()).collect(Collectors.toList());
+        return this.racers.stream().map(Racer::getNickName).collect(Collectors.toList());
     }
 }
