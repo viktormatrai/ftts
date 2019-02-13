@@ -1,5 +1,6 @@
 package com.ftts.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,7 +27,13 @@ public class Race {
     @OneToMany(mappedBy = "race")
     private List<RacerTime> racerTimes;
 
-    @OneToMany(mappedBy = "race")
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            name = "racer_race",
+            joinColumns = { @JoinColumn(name = "racer_id") },
+            inverseJoinColumns = { @JoinColumn(name = "race_id")}
+    )
     private List<Racer> racers;
 
     @ManyToMany(mappedBy = "races", cascade = CascadeType.MERGE)

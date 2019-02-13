@@ -2,6 +2,7 @@ package com.ftts.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -18,14 +19,16 @@ public class Volunteer {
     @Id
     @GeneratedValue
     private Long id;
+
     @NonNull
     private String email;
+
     @NonNull
     private String firstName;
+
     @NonNull
     private String lastName;
 
-    @NonNull
     private String nameOfVolunteer;
 
     @JsonIgnore

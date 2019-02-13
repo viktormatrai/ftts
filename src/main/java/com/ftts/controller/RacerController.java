@@ -1,6 +1,7 @@
 package com.ftts.controller;
 
 import com.ftts.model.Gender;
+import com.ftts.model.Race;
 import com.ftts.repository.RacerRepository;
 import com.ftts.model.Racer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class RacerController {
 
@@ -33,8 +36,21 @@ public class RacerController {
 
     @PostMapping(value = "/racers/new-racer", consumes = "application/json", produces = "application/json")
     public void saveRacer(@RequestBody Racer racer){
-        racerRepository.save(racer);
+        racerRepository.saveAndFlush(racer);
     }
 
+    @PutMapping(value = "racers/{id}", consumes = "application/json")
+    public void updateRacer(@RequestBody Racer racer, @PathVariable("id") int id) {
+        Racer currentRacer = racerRepository.getById((long) id);
 
+        currentRacer.setFirstName(racer.getFirstName());
+        currentRacer.setLastName(racer.getLastName());
+        currentRacer.setNickName(racer.getNickName());
+        currentRacer.setGender(racer.getGender());
+        currentRacer.setTeam(racer.getTeam());
+        currentRacer.getPoints();
+        currentRacer.getRaceNameList();
+
+        racerRepository.save(racer);
+    }
 }

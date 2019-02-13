@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class RaceController {
 
@@ -20,12 +21,12 @@ public class RaceController {
         return new ResponseEntity<>(raceRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/races/{raceName}", produces = "application/json")
-    public ResponseEntity<Race> getRaceByName(@PathVariable("raceName") String raceName){
-        return new ResponseEntity<>(raceRepository.getByRaceName(raceName), HttpStatus.OK);
+    @GetMapping(value = "/races/{id}", produces = "application/json")
+    public ResponseEntity<Race> getRaceByID(@PathVariable("id") int id){
+        return new ResponseEntity<>(raceRepository.getById((long) id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/races/new-race", consumes = "application/json", produces = "application/json")
+    @PostMapping(value = "/new-race", consumes = "application/json", produces = "application/json")
     public void saveNewRace(@RequestBody Race race){
         raceRepository.save(race);
     }

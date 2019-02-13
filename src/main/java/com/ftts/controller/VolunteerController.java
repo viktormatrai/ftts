@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class VolunteerController {
 
@@ -29,5 +30,7 @@ public class VolunteerController {
     public void saveVolunteer(@RequestBody Volunteer volunteer){
         volunteerRepository.save(volunteer);
     }
+
+
 
 }

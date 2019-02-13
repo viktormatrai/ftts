@@ -70,7 +70,10 @@ public class FTTSRun {
             listOfRaces.add(pilis);
 
             Racer viktor = Racer.builder()
+                    .firstName("Viktor")
+                    .lastName("Mátrai")
                     .nickName("Viktor")
+                    .email("viktor0matrai@gmail.com")
                     .points(20)
                     .gender(Gender.MALE)
                     .races(listOfRaces)
@@ -78,16 +81,21 @@ public class FTTSRun {
                     .build();
 
             Racer simon = Racer.builder()
+                    .firstName("Simon")
+                    .lastName("Mayer")
                     .nickName("Simon")
+                    .email("simon.mayer@gmail.com")
                     .races(listOfRaces)
-                   // .tags(tagList)
                     .points(20)
                     .gender(Gender.MALE)
                     .team(pavéFixedGearTeam)
                     .build();
 
             Racer ádi = Racer.builder()
+                    .firstName("Ádám")
+                    .lastName("Bodansky")
                     .nickName("Ádi")
+                    .email("bodanskya@gmail.com")
                     .races(listOfRaces)
                     .points(20)
                     .gender(Gender.MALE)
@@ -95,7 +103,10 @@ public class FTTSRun {
                     .build();
 
             Racer levi = Racer.builder()
+                    .firstName("Levente")
+                    .lastName("Libárdi")
                     .nickName("Levi")
+                    .email("levnte.libardi@gmailcom")
                     .team(pavéFixedGearTeam)
                     .points(20)
                     .races(listOfRaces)
@@ -107,7 +118,6 @@ public class FTTSRun {
             listOfRacersOnRaces.add(simon);
             listOfRacersOnRaces.add(ádi);
             listOfRacersOnRaces.add(levi);
-            // kisoroszi.setRacers(listOfRacersOnRaces);
 
             List<Racer> listOfRacersInTeam = new ArrayList<>();
 

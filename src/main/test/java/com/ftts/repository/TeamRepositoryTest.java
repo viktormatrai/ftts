@@ -23,8 +23,6 @@ public class TeamRepositoryTest {
     @Test
     public void saveTeam(){
         Team testTeam = Team.builder().teamName("test team").build();
-
-
         teamRepository.save(testTeam);
 
         List<Team> teams= teamRepository.findAll();

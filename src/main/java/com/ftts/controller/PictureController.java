@@ -10,13 +10,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
+@RequestMapping("/pictures")
 public class PictureController {
 
     @Autowired
     PictureRepository pictureRepository;
 
-    @GetMapping(value = "/pictures", produces = "application/json")
+    @GetMapping(value = "/", produces = "application/json")
     public ResponseEntity<List<Picture>> getAllPictures(){
         return new ResponseEntity<>(pictureRepository.findAll(), HttpStatus.OK);
     }
@@ -26,7 +28,7 @@ public class PictureController {
         return new ResponseEntity<>(pictureRepository.getPicturesByTag(tag), HttpStatus.OK);
     } */
 
-    @PostMapping(value = "/pictures/upload", consumes = "application/json", produces = "application/json")
+    @PostMapping(value = "/upload", consumes = "application/json", produces = "application/json")
     public void savePicture(@RequestBody Picture picture){
         pictureRepository.save(picture);
     }
